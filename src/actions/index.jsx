@@ -1,35 +1,50 @@
-export const setSearchText = (searchText) => {
-    return {
-        type: 'SET_SEARCH_TEXT',
-        searchText
-    };
-};
 export const setTodo = (setTodo) => {
     return {
         type: 'SET_NEW_TODO',
         setTodo
     };
 };
-export const toggleShowCompleted = () => {
+export const setSearchText = (searchText) => {
     return {
-        type: 'TOGGLE_SHOW_COMPLETED'
+        type: 'SET_SEARCH_TEXT',
+        searchText
     };
 };
-export const addTodo = (text) => {
+export const addPerson = ({ name, age }) => {
     return {
-        type: 'ADD_TODO',
-        text
+        type: 'ADD_PERSON',
+        name,
+        age,
+    }
+};
+export const changeName = (name) => {
+    return {
+        type: 'CHANGE_NAME',
+        name
+    }
+};
+export const addHobby = (hobby) => {
+    return {
+        type: 'ADD_HOBBY',
+        hobby
+    }
+};
+export const removeHobby = (hobby) => {
+    return {
+        type: 'REMOVE_HOBBY',
+        hobby
+    }
+};
+export const addMovie = (title, genre) => {
+    return {
+        type: 'ADD_MOVIE',
+        title,
+        genre
     };
 };
-export const addTodos = (todos) => {
+export const removeMovie = (id) => {
     return {
-        type: 'ADD_TODOS',
-        todos
-    };
-};
-export const toggleTodo = (id) => {
-    return {
-        type: 'TOGGLE_TODO',
+        type: 'REMOVE_MOVIE',
         id
-    };
+    }
 };

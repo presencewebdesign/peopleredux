@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 import Todo from './Todo';
 import TodoApi from './api/TodoApi';
 const TodoList = (props) => {
-    const { todos, showCompleted, searchText } = props;
-    const renderTodos = () => TodoApi.filterTodos(
-        todos, showCompleted, searchText,
-    ).map(todo => (
+    const { person, searchText } = props;
+    const renderPersons = () => TodoApi.getPersons(
+        person, searchText,
+    ).map(person => (
         <Todo
-            key={todo.id}
-            {...todo}
+            key={person.id}
+            {...person}
         />
     ));
     return (
         <div>
-            {renderTodos()}
+            {renderPersons()}
         </div>
     );
 };
@@ -22,8 +22,7 @@ const TodoList = (props) => {
 export default connect(
     (state) => {
         return{
-            todos: state.todos,
-            showCompleted: state.showCompleted,
+            person: state.person,
             searchText: state.searchText,
         };
     }

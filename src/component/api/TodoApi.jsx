@@ -1,53 +1,37 @@
 import $ from 'jquery';
 
 const TodoApi = {
-    setTodos (todos) {
-        if ($.isArray(todos)) {
-            localStorage.setItem('todos', JSON.stringify(todos));
-            return todos;
+    setTodos (person) {
+        if ($.isArray(person)) {
+            localStorage.setItem('person', JSON.stringify(person));
+            return person;
         }
     },
-    getTodos() {
-        const stringTodos = localStorage.getItem('todos');
-        let todos = [];
+    getPersons() {
+        const stringPersons = localStorage.getItem('person');
+        let person = [];
         try {
-            todos = JSON.parse(stringTodos);
+            person = JSON.parse(stringPersons);
         } catch (e) {}
         // Final check data is valid
-        return $.isArray(todos) ? todos : [];
+        return $.isArray(person) ? person : [];
     },
-    filterTodos(todos, isComplete, searchText) {
-        let filteredTodos = todos;
-        // Filter by isCompleted
-        filteredTodos = filteredTodos.filter((todo) => {
-            return !todo.completed || isComplete;
-        });
+    filterPersons(person, searchText) {
+        let filteredPersons = person;
 
         // Filter by searchText
-        filteredTodos = filteredTodos.filter((todo) => {
-            if(todo.text){
-                console.log(todo.text);
-            }
-            const text = todo.text.toLowerCase();
-            return searchText.length === 0 || text.indexOf(searchText) > -1;
+        filteredPersons = filteredPersons.filter((person) => {
+            console.log(person);
+            const name = person.name.toLowerCase();
+            return searchText.length === 0 || name.indexOf(searchText) > -1;
         });
 
         // sort todos with non-completed first
-        filteredTodos = filteredTodos.filter((todo) => {
-            return !todo.completed || isComplete;
+        filteredPersons = filteredPersons.filter((person) => {
+            return person;
         });
 
-        filteredTodos.sort((a, b) => {
-            if (!a.completed && b.completed) {
-                return -1;
-            } else if (a.completed && !b.completed) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
-
-        return filteredTodos;
+        return filteredPersons;
     },
 };
 export default TodoApi;

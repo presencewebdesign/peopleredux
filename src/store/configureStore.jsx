@@ -1,11 +1,10 @@
 import { compose, createStore, combineReducers } from 'redux';
-import { searchTextReducer, showCompletedReducer, todosReducer, setTodoReducer } from '../reducers/index';
+import { personReducer, searchTextReducer, setTodoReducer } from '../reducers/index';
 
 export default () => {
     const reducer = combineReducers({
-        searchText: searchTextReducer,
-        showCompleted: showCompletedReducer,
-        todos: todosReducer,
+        addPerson: personReducer,
+        setSearchText: searchTextReducer,
         settodo: setTodoReducer,
     });
 

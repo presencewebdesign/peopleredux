@@ -1,6 +1,3 @@
-const uuid = require('node-uuid');
-const moment = require('moment');
-
 export const searchTextReducer = (state = '', action) => {
     switch (action.type) {
     case 'SET_SEARCH_TEXT':
@@ -17,45 +14,69 @@ export const setTodoReducer = (state = '', action) => {
         return state;
     }
 };
-export const showCompletedReducer = (state = false, action) => {
+// Add Person
+let personId = 1;
+export const personReducer = (state = {}, action) => {
+
     switch (action.type) {
-    case 'TOGGLE_SHOW_COMPLETED':
-        return !state;
-    default:
-        return state;
-    }
-};
-export const todosReducer = (state = [], action) => {
-    switch (action.type) {
-    case 'ADD_TODO':
-        return [
+    case 'ADD_PERSON':
+        return {
             ...state,
-            {
-                id: uuid(),
-                text: action.text,
-                completed: false,
-                createdAt: moment().unix(),
-                completedAt: undefined,
+            [personId++]: {
+                name: action.name,
+                age: action.age,
+                hobbies: [],
+                movies: [],
             },
-        ];
-    case 'TOGGLE_TODO':
-        return state.map((todo) => {
-            if (todo.id === action.id) {
-                let nextCompleted = !todo.completed;
-                return {
-                    ...todo,
-                    completed: nextCompleted,
-                    completedAt: nextCompleted ? moment().unix() : undefined,
-                };
-            } else {
-                return todo;
-            }
-        });
-    case 'ADD_TODOS':
-        return [
+        };
+    case 'CHANGE_NAME':
+        return {
             ...state,
-            ...action.todos,
-        ];
+            [action.id]: {
+                name: action.name,
+                age: action.age,
+                hobbies: [],
+                movies: [],
+            },
+        };
+    case 'ADD_MOVIE':
+        return {
+            ...state,
+            [action.id]: {
+                ...state[action.id],
+                movies: [
+                    ...state[action.id].movies,
+                    action.movie,
+                ],
+            },
+        };
+    case 'REMOVE_MOVIE':
+        return {
+            ...state,
+            [action.id]: {
+                ...state[action.id],
+                movies: state[action.id].movies.filter((movie, index) => index !== action.movieId),
+            },
+        };
+    case 'ADD_HOBBY':
+        return {
+            ...state,
+            [action.id]: {
+                ...state[action.id],
+                hobbies: [
+                    ...state[action.id].hobbies,
+                    action.hobby,
+                ],
+            },
+        };
+    case 'REMOVE_HOBBY':
+        return {
+            ...state,
+            [action.id]: {
+                ...state[action.id],
+                hobbies: state[action.id].hobbies.filter((hobby, index) => index !== action.hobbyId),
+            },
+        };
     default:
         return state;
     }

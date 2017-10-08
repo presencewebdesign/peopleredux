@@ -4,7 +4,6 @@ import * as actions from '../actions';
 import { Button, Row, Column } from 'react-foundation';
 import TodoList from './TodoList';
 import Input from './form/Input';
-import Check from './form/Check';
 
 class TodoApp extends Component {
     constructor(props) {
@@ -24,9 +23,10 @@ class TodoApp extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        const todoText = this.props.settodo;
-        if (todoText.length > 0) {
-            this.props.dispatch(actions.addTodo(todoText));
+        const setperson = this.props.setperson;
+        console.log(setperson);
+        if (setperson.length > 0) {
+            this.props.dispatch(actions.addPerson(setperson));
         }
     }
     render() {
@@ -46,25 +46,16 @@ class TodoApp extends Component {
                                         this.props.dispatch(actions.setSearchText(e.target.value));
                                     }}
                                 />
-                                <Check
-                                    name="showCompleted"
-                                    type="checkbox"
-                                    label="Show Completed"
-                                    state={this.state}
-                                    onChange={() => {
-                                        this.props.dispatch(actions.toggleShowCompleted());
-                                    }}
-                                />
                                 <TodoList />
                                 <form onSubmit={this.handleSubmit}>
                                     <Input
-                                        name="settodo"
+                                        name="setperson"
                                         type="text"
                                         state={this.state}
                                         control={this.control}
-                                        placeholder="Add Todos"
+                                        placeholder="Add Person"
                                         onChange={(e) => {
-                                        this.props.dispatch(actions.setTodo(e.target.value));
+                                        this.props.dispatch(actions.addPerson(e.target.value));
                                     }}
                                     />
                                     <Button type="submit">Add Todo</Button>
@@ -73,19 +64,6 @@ class TodoApp extends Component {
                         </Row>
                     </div>
                 </div>
-
-            {/*
-            <TodoSearch
-                onSearch={this.handleSearch}
-            />
-            <TodoList
-                todos={filteredTodos}
-                onToggle={this.handleToggle}
-            />
-            <AddTodo
-                onAddTodo={this.handleAddTodo}
-            /> */}
-
           </div>
         );
     }
@@ -93,7 +71,7 @@ class TodoApp extends Component {
 export default connect(
     (state) => {
         return{
-            todos: state.todos,
+            person: state.person,
             settodo: state.settodo,
         };
     },
