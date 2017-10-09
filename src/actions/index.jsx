@@ -1,7 +1,13 @@
-export const setTodo = (setTodo) => {
+export const setName = (setName) => {
     return {
-        type: 'SET_NEW_TODO',
-        setTodo
+        type: 'SET_NAME',
+        setName
+    };
+};
+export const setAge = (setAge) => {
+    return {
+        type: 'SET_AGE',
+        setAge
     };
 };
 export const setSearchText = (searchText) => {
@@ -9,6 +15,11 @@ export const setSearchText = (searchText) => {
         type: 'SET_SEARCH_TEXT',
         searchText
     };
+};
+export const getPersons = (getPersons) => {
+    return {
+        type: 'GET_PERSONS',
+    }
 };
 export const addPerson = ({ name, age }) => {
     return {

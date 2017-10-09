@@ -8,7 +8,7 @@ const TodoApi = {
         }
     },
     getPersons() {
-        const stringPersons = localStorage.getItem('person');
+        const stringPersons = localStorage.getItem('addPerson');
         let person = [];
         try {
             person = JSON.parse(stringPersons);

@@ -23,6 +23,6 @@ const Todo = (props) => {
 
 export default connect(
     (state) => ({
-            todos: state.todos
+            todos: state.person
         }),
 )(Todo);

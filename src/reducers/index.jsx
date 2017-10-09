@@ -6,10 +6,26 @@ export const searchTextReducer = (state = '', action) => {
         return state;
     }
 };
-export const setTodoReducer = (state = '', action) => {
+export const setNameReducer = (state = '', action) => {
     switch (action.type) {
-    case 'SET_NEW_TODO':
-        return action.setTodo;
+    case 'SET_NAME':
+        return action.setName;
+    default:
+        return state;
+    }
+};
+export const setAgeReducer = (state = '', action) => {
+    switch (action.type) {
+    case 'SET_AGE':
+        return action.setAge;
+    default:
+        return state;
+    }
+};
+export const getPersonsReducer = (state = '', action) => {
+    switch (action.type) {
+    case 'GET_PERSONS':
+        return state.person;
     default:
         return state;
     }

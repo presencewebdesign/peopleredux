@@ -1,11 +1,13 @@
 import { compose, createStore, combineReducers } from 'redux';
-import { personReducer, searchTextReducer, setTodoReducer } from '../reducers/index';
+import { personReducer, searchTextReducer, setNameReducer, setAgeReducer, getPersonsReducer } from '../reducers/index';
 
 export default () => {
     const reducer = combineReducers({
         addPerson: personReducer,
         setSearchText: searchTextReducer,
-        settodo: setTodoReducer,
+        setName: setNameReducer,
+        setAge: setAgeReducer,
+        getPersons: getPersonsReducer,
     });
 
     let store = createStore(reducer, compose(
