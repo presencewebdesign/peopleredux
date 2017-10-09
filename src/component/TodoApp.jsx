@@ -23,10 +23,11 @@ class TodoApp extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        const setperson = this.props.setperson;
-        console.log(setperson);
-        if (setperson.length > 0) {
-            this.props.dispatch(actions.addPerson(setperson));
+        if (this.props.settodo.length > 0) {
+            this.props.dispatch(actions.addPerson({
+                name: this.props.settodo,
+                age: 2
+            }));
         }
     }
     render() {
@@ -49,13 +50,13 @@ class TodoApp extends Component {
                                 <TodoList />
                                 <form onSubmit={this.handleSubmit}>
                                     <Input
-                                        name="setperson"
+                                        name="settodo"
                                         type="text"
                                         state={this.state}
                                         control={this.control}
                                         placeholder="Add Person"
                                         onChange={(e) => {
-                                        this.props.dispatch(actions.addPerson(e.target.value));
+                                        this.props.dispatch(actions.setTodo(e.target.value));
                                     }}
                                     />
                                     <Button type="submit">Add Todo</Button>
