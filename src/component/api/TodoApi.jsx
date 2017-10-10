@@ -7,15 +7,6 @@ const TodoApi = {
             return person;
         }
     },
-    getPersons() {
-        const stringPersons = localStorage.getItem('addPerson');
-        let person = [];
-        try {
-            person = JSON.parse(stringPersons);
-        } catch (e) {}
-        // Final check data is valid
-        return $.isArray(person) ? person : [];
-    },
     filterPersons(person, searchText) {
         let filteredPersons = person;
 

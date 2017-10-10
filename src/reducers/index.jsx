@@ -30,6 +30,19 @@ export const getPersonsReducer = (state = '', action) => {
         return state;
     }
 };
+export const updateAgeReducer = (state = '', action) => {
+    switch (action.type) {
+    case 'UPDATE_AGE':
+        return {
+            ...state,
+            [action.id]: {
+                age: action.age,
+            },
+        };
+    default:
+        return state;
+    }
+};
 // Add Person
 let personId = localStorage.getItem('newId') || 1;
 export const personReducer = (state = {}, action) => {

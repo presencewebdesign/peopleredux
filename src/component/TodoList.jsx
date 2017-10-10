@@ -21,12 +21,10 @@ const TodoList = (props) => {
                     ...person,
                     id: key,
                 };
-            })
-            .filter(person => {
+            }).filter(person => {
                 const name = person.name.toLowerCase();
                 return props.searchText.length === 0 || name.indexOf(props.searchText) > -1;
-            })
-            .map(person => (
+            }).map(person => (
                 <Todo
                     key={person.id}
                     {...person}
@@ -42,6 +40,7 @@ export default connect(
             person: state.person,
             searchText: state.setSearchText,
             addPerson: state.addPerson,
+            UpdateAge: state.UpdateAge,
         };
     }
 )(TodoList);

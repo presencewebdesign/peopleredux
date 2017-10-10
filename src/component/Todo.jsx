@@ -1,21 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import Input from './form/Input';
+import * as actions from '../actions';
 const Todo = (props) => {
     return (
-        <label className="todoList">
-            <div>
-                Name: {props.name}
+        <div>
+            <label className="todoList">
+                <div>
+                    Name: {props.name}
+                </div>
+                <div>
+                    Age: {props.age}
+                </div>
+                    <Input
+                        name="updateage"
+                        type="text"
+                        state={this.state}
+                        control={this.control}
+                        placeholder="Update Age"
+                        onChange={(e) => {
+                            this.props.dispatch(actions.UpdateAge(props.id));
+                        }}
+                    />
+                </label>
             </div>
-            <div>
-                Age: {props.age}
-            </div>
-        </label>
+
     );
 };
 
 export default connect(
     (state) => ({
-        todos: state.person
+        person: state.person,
+        UpdateAge: state.UpdateAge,
     }),
 )(Todo);
