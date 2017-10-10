@@ -31,14 +31,17 @@ export const getPersonsReducer = (state = '', action) => {
     }
 };
 // Add Person
-let personId = 1;
+let personId = localStorage.getItem('newId') || 1;
 export const personReducer = (state = {}, action) => {
 
     switch (action.type) {
     case 'ADD_PERSON':
+    let newId = personId++;
+    localStorage.setItem('newId', newId+1);
+
         return {
             ...state,
-            [personId++]: {
+            [newId]: {
                 name: action.name,
                 age: action.age,
                 hobbies: [],

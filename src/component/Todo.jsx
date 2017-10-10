@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 const Todo = (props) => {
     return (
         <label className="todoList">
-            {props.name}
-            {props.age}
+            <div>
+                Name: {props.name}
+            </div>
+            <div>
+                Age: {props.age}
+            </div>
         </label>
     );
 };
