@@ -10,12 +10,20 @@ export const setAge = (setAge) => {
         setAge
     };
 };
-export const UpdateAge = (id, name, age) => {
+export const updateAge = (id, name, age) => {
     return {
         type: 'CHANGE_NAME',
         id,
         name,
         age
+    };
+};
+export const updateName = (id, age, name) => {
+    return {
+        type: 'CHANGE_NAME',
+        id,
+        age,
+        name
     };
 };
 export const setSearchText = (searchText) => {

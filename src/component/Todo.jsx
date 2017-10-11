@@ -13,6 +13,17 @@ const Todo = (props) => {
                     Age: {props.age}
                 </div>
                     <Input
+                        name="updatename"
+                        type="text"
+                        state={this.state}
+                        control={this.control}
+                        value={props.name}
+                        placeholder="Update Name"
+                        onChange={(e) => {
+                            props.dispatch(actions.updateName(props.id, props.age, e.target.value));
+                        }}
+                    />
+                    <Input
                         name="updateage"
                         type="text"
                         state={this.state}
@@ -20,7 +31,7 @@ const Todo = (props) => {
                         value={props.age}
                         placeholder="Update Age"
                         onChange={(e) => {
-                            props.dispatch(actions.UpdateAge(props.id, props.name, e.target.value));
+                            props.dispatch(actions.updateAge(props.id, props.name, e.target.value));
                         }}
                     />
                 </label>
