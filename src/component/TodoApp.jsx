@@ -47,7 +47,6 @@ class TodoApp extends Component {
                                         this.props.dispatch(actions.setSearchText(e.target.value));
                                     }}
                                 />
-                                <TodoList />
                                 <form onSubmit={this.handleSubmit}>
                                     <Input
                                         name="name"
@@ -71,6 +70,7 @@ class TodoApp extends Component {
                                     />
                                     <Button type="submit">Add Person</Button>
                                 </form>
+                                <TodoList />
                             </Column>
                         </Row>
                     </div>
