@@ -40,7 +40,6 @@ export default connect(
             person: state.person,
             searchText: state.setSearchText,
             addPerson: state.addPerson,
-            UpdateAge: state.UpdateAge,
         };
     }
 )(TodoList);

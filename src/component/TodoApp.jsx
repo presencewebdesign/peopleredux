@@ -32,50 +32,50 @@ class TodoApp extends Component {
     }
     render() {
         return (
-        <div>
-            <div className="grid-center-example">
-                <div className="container">
-                    <h1 className="page-title">Person App</h1>
-                    <Row className="display">
-                        <Column small={11} medium={6} large={5}>
-                            <Input
-                                name="searchText"
-                                type="text"
-                                state={this.state}
-                                placeholder="Search Todos..."
-                                onChange={(e) => {
-                                    this.props.dispatch(actions.setSearchText(e.target.value));
-                                }}
-                            />
-                            <TodoList />
-                            <form onSubmit={this.handleSubmit}>
+            <div>
+                <div className="grid-center-example">
+                    <div className="container">
+                        <h1 className="page-title">Person App</h1>
+                        <Row className="display">
+                            <Column small={11} medium={6} large={5}>
                                 <Input
-                                    name="name"
+                                    name="searchText"
                                     type="text"
                                     state={this.state}
-                                    control={this.control}
-                                    placeholder="Enter Name"
+                                    placeholder="Search Todos..."
                                     onChange={(e) => {
-                                        this.props.dispatch(actions.setName(e.target.value));
+                                        this.props.dispatch(actions.setSearchText(e.target.value));
                                     }}
                                 />
-                                <Input
-                                    name="age"
-                                    type="text"
-                                    state={this.state}
-                                    control={this.control}
-                                    placeholder="Enter Age"
-                                    onChange={(e) => {
-                                        this.props.dispatch(actions.setAge(e.target.value));
-                                    }}
-                                />
-                                <Button type="submit">Add Person</Button>
-                            </form>
-                        </Column>
-                    </Row>
+                                <TodoList />
+                                <form onSubmit={this.handleSubmit}>
+                                    <Input
+                                        name="name"
+                                        type="text"
+                                        state={this.state}
+                                        control={this.control}
+                                        placeholder="Enter Name"
+                                        onChange={(e) => {
+                                            this.props.dispatch(actions.setName(e.target.value));
+                                        }}
+                                    />
+                                    <Input
+                                        name="age"
+                                        type="text"
+                                        state={this.state}
+                                        control={this.control}
+                                        placeholder="Enter Age"
+                                        onChange={(e) => {
+                                            this.props.dispatch(actions.setAge(e.target.value));
+                                        }}
+                                    />
+                                    <Button type="submit">Add Person</Button>
+                                </form>
+                            </Column>
+                        </Row>
+                    </div>
                 </div>
             </div>
-        </div>
         );
     }
 }

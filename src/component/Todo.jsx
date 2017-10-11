@@ -17,9 +17,10 @@ const Todo = (props) => {
                         type="text"
                         state={this.state}
                         control={this.control}
+                        value={props.age}
                         placeholder="Update Age"
                         onChange={(e) => {
-                            this.props.dispatch(actions.UpdateAge(props.id));
+                            props.dispatch(actions.UpdateAge(props.id, props.name, e.target.value));
                         }}
                     />
                 </label>
@@ -31,6 +32,7 @@ const Todo = (props) => {
 export default connect(
     (state) => ({
         person: state.person,
-        UpdateAge: state.UpdateAge,
-    }),
+    }),(dispatch) => ({
+        dispatch
+    })
 )(Todo);

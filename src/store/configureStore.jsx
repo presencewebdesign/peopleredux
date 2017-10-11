@@ -1,5 +1,5 @@
 import { compose, createStore, combineReducers } from 'redux';
-import { personReducer, searchTextReducer, setNameReducer, setAgeReducer, getPersonsReducer, updateAgeReducer } from '../reducers/index';
+import { personReducer, searchTextReducer, setNameReducer, setAgeReducer, getPersonsReducer } from '../reducers/index';
 import { loadState, saveState } from '@marmalade/session';
 import throttle from 'lodash/throttle';
 
@@ -10,7 +10,6 @@ export default () => {
         setName: setNameReducer,
         setAge: setAgeReducer,
         getPersons: getPersonsReducer,
-        updateAge: updateAgeReducer,
     });
 
     const initialState = loadState('1.0');
