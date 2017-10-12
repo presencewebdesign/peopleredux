@@ -47,7 +47,7 @@ export const personReducer = (state = {}, action) => {
                 movies: [],
             },
         };
-    case 'CHANGE_NAME':
+    case 'UPDATE_PERSON':
         return {
             ...state,
             [action.id]: {

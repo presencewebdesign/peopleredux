@@ -1,35 +1,27 @@
 export const setName = (setName) => {
     return {
         type: 'SET_NAME',
-        setName
+        setName,
     };
 };
 export const setAge = (setAge) => {
     return {
         type: 'SET_AGE',
-        setAge
+        setAge,
     };
 };
-export const updateAge = (id, name, age) => {
+export const updatePerson = (id, age, name) => {
     return {
-        type: 'CHANGE_NAME',
-        id,
-        name,
-        age
-    };
-};
-export const updateName = (id, age, name) => {
-    return {
-        type: 'CHANGE_NAME',
+        type: 'UPDATE_PERSON',
         id,
         age,
-        name
+        name,
     };
 };
 export const setSearchText = (searchText) => {
     return {
         type: 'SET_SEARCH_TEXT',
-        searchText
+        searchText,
     };
 };
 export const getPersons = (getPersons) => {
@@ -47,31 +39,31 @@ export const addPerson = ({ name, age }) => {
 export const changeName = (name) => {
     return {
         type: 'CHANGE_NAME',
-        name
+        name,
     }
 };
 export const addHobby = (hobby) => {
     return {
         type: 'ADD_HOBBY',
-        hobby
+        hobby,
     }
 };
 export const removeHobby = (hobby) => {
     return {
         type: 'REMOVE_HOBBY',
-        hobby
+        hobby,
     }
 };
 export const addMovie = (title, genre) => {
     return {
         type: 'ADD_MOVIE',
         title,
-        genre
+        genre,
     };
 };
 export const removeMovie = (id) => {
     return {
         type: 'REMOVE_MOVIE',
-        id
+        id,
     }
 };
