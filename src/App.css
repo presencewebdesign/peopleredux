@@ -1,32 +1,45 @@
-body{
-    margin: 20px;
-}
-.todoList{
-    border: solid 1px #CCC;
-    display: block;
-    background: #eee;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-p{
-    padding:0;
-    margin-bottom:0;
-}
-p.date{
-    text-align: left;
-}
-.container{
-    max-width: 500px;
-    margin: 0px auto;
-}
+body {
+  margin: 20px; }
+
+.todoList {
+  border: solid 1px #CCC;
+  display: block;
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 10px; }
+  .todoList input {
+    border: 0;
+    background: transparent;
+    color: black;
+    /* do not group these rules */ }
+    .todoList input *::-webkit-input-placeholder {
+      color: black !important; }
+    .todoList input *:-moz-placeholder {
+      /* FF 4-18 */
+      color: black !important; }
+    .todoList input *::-moz-placeholder {
+      /* FF 19+ */
+      color: black !important; }
+    .todoList input *:-ms-input-placeholder {
+      /* IE 10+ */
+      color: black !important; }
+
+p {
+  padding: 0;
+  margin-bottom: 0; }
+
+p.date {
+  text-align: left; }
+
+.container {
+  max-width: 500px;
+  margin: 0px auto; }
+
 input[type=checkbox] + label {
-    color: #333;
-    font-style: normal;
-}
+  color: #333;
+  font-style: normal; }
+
 input[type=checkbox]:checked + label {
-    color: #333;
-    text-decoration: line-through;
-    font-style: italic;
-}
-
-
+  color: #333;
+  text-decoration: line-through;
+  font-style: italic; }

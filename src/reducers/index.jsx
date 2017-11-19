@@ -22,6 +22,14 @@ export const setAgeReducer = (state = '', action) => {
         return state;
     }
 };
+export const setHobbyReducer = (state = '', action) => {
+    switch (action.type) {
+    case 'SET_HOBBY':
+        return action.setHobby;
+    default:
+        return state;
+    }
+};
 export const getPersonsReducer = (state = '', action) => {
     switch (action.type) {
     case 'GET_PERSONS':
@@ -36,8 +44,8 @@ export const personReducer = (state = {}, action) => {
 
     switch (action.type) {
     case 'ADD_PERSON':
-    let newId = personId++;
-    localStorage.setItem('newId', newId+1);
+        const newId = personId++;
+        localStorage.setItem('newId', newId + 1);
         return {
             ...state,
             [newId]: {
@@ -62,10 +70,12 @@ export const personReducer = (state = {}, action) => {
             ...state,
             [action.id]: {
                 ...state[action.id],
-                movies: [
-                    ...state[action.id].movies,
-                    action.movie,
-                ],
+                [newId]: {
+                    movies: [
+                        ...state[action.id].movies,
+                        action.movie,
+                    ],
+                },
             },
         };
     case 'REMOVE_MOVIE':
@@ -80,10 +90,9 @@ export const personReducer = (state = {}, action) => {
         return {
             ...state,
             [action.id]: {
-                ...state[action.id],
                 hobbies: [
-                    ...state[action.id].hobbies,
-                    action.hobby,
+                    ...state[newId].hobbies,
+                    action.setHobby,
                 ],
             },
         };

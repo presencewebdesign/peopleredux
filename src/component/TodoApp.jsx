@@ -8,19 +8,9 @@ import Input from './form/Input';
 class TodoApp extends Component {
     constructor(props) {
         super(props);
-        this.control = this.control.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    control(e) {
-        const value = e.target.value;
-        const name = e.target.name;
-        this.setState({
-            values: {
-                ...this.state.values, // this takes all thats inside of this.state.values and puts it here - below you add the new data.
-                [name]: value, // use [] to use a dynamic (variable) key
-            },
-        });
-    }
+
     handleSubmit(e) {
         e.preventDefault();
         if (this.props.setName.length > 0 && this.props.setAge.length > 0) {
@@ -52,7 +42,6 @@ class TodoApp extends Component {
                                         name="name"
                                         type="text"
                                         state={this.state}
-                                        control={this.control}
                                         placeholder="Enter Name"
                                         onChange={(e) => {
                                             this.props.dispatch(actions.setName(e.target.value));
@@ -62,7 +51,6 @@ class TodoApp extends Component {
                                         name="age"
                                         type="text"
                                         state={this.state}
-                                        control={this.control}
                                         placeholder="Enter Age"
                                         onChange={(e) => {
                                             this.props.dispatch(actions.setAge(e.target.value));

@@ -10,6 +10,12 @@ export const setAge = (setAge) => {
         setAge,
     };
 };
+export const setHobby = (setHobby) => {
+    return {
+        type: 'SET_HOBBY',
+        setHobby,
+    };
+};
 export const updatePerson = (id, age, name) => {
     return {
         type: 'UPDATE_PERSON',
@@ -42,16 +48,16 @@ export const changeName = (name) => {
         name,
     }
 };
-export const addHobby = (hobby) => {
+export const addHobby = (setHobby) => {
     return {
         type: 'ADD_HOBBY',
-        hobby,
+        setHobby,
     }
 };
-export const removeHobby = (hobby) => {
+export const removeHobby = (setHobby) => {
     return {
         type: 'REMOVE_HOBBY',
-        hobby,
+        setHobby,
     }
 };
 export const addMovie = (title, genre) => {
