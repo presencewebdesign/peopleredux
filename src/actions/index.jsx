@@ -48,16 +48,17 @@ export const changeName = (name) => {
         name,
     }
 };
-export const addHobby = (setHobby) => {
+export const addHobby = (id, hobby) => {
     return {
         type: 'ADD_HOBBY',
-        setHobby,
+        id,
+        hobby,
     }
 };
-export const removeHobby = (setHobby) => {
+export const removeHobby = (hobby) => {
     return {
         type: 'REMOVE_HOBBY',
-        setHobby,
+        hobby,
     }
 };
 export const addMovie = (title, genre) => {
