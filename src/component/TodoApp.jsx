@@ -69,7 +69,6 @@ class TodoApp extends Component {
 }
 export default connect(
     (state) => ({
-            person: state.person,
             setName: state.setName,
             setAge: state.setAge,
         }),

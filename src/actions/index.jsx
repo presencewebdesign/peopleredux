@@ -48,11 +48,11 @@ export const changeName = (name) => {
         name,
     }
 };
-export const addHobby = (id, hobby) => {
+export const addHobby = (id, name) => {
     return {
         type: 'ADD_HOBBY',
         id,
-        hobby,
+        name,
     }
 };
 export const removeHobby = (hobby) => {

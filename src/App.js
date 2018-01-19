@@ -11,7 +11,7 @@ const store = configureStore();
 // Subscribe to changes
 store.subscribe(() => {
     const state = store.getState();
-    console.log('New state', store.getState());
+    //console.log('New state', store.getState());
     TodoApi.setTodos(state.person);
 });
 

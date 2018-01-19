@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-foundation';
 import Input from './form/Input';
+import Hobby from './Hobby';
 import * as actions from '../actions';
 
 class AddHobby extends Component {
@@ -21,7 +22,21 @@ class AddHobby extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="panel">
+
+                {Object.keys(this.props.addPerson).map(key => {
+                    const hobbies = this.props.addPerson[key].hobbies;
+                    console.log(hobbies);
+                    return {
+                        ...hobbies,
+                        name: key,
+                    };
+                }).map(hobbies => (
+                    <Hobby
+                        key={hobbies.id}
+                        {...hobbies}
+                    />
+                ))}
                 <label>Hobbies
                     <form onSubmit={this.handleSubmit}>
                         <Input
@@ -45,5 +60,6 @@ class AddHobby extends Component {
 export default connect(
     state => ({
         setHobby: state.setHobby,
+        addPerson: state.addPerson,
     }),
 )(AddHobby);

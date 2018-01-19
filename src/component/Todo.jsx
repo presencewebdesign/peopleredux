@@ -7,7 +7,7 @@ import * as actions from '../actions';
 const Todo = props => (
 <div>
     <label className="todoList">
-        <div>
+        <div className="panel">
             Name:
             <Input
                 name="updatename"
@@ -20,8 +20,6 @@ const Todo = props => (
                     props.dispatch(actions.updatePerson(props.id, props.age, e.target.value));
                 }}
             />
-        </div>
-        <div>
             Age:
             <Input
                 name="updateage"
@@ -34,7 +32,7 @@ const Todo = props => (
                     props.dispatch(actions.updatePerson(props.id, e.target.value, props.name));
                 }}
             />
-    </div>
+        </div>
         <AddHobby
             id={props.id}
         />

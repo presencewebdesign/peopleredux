@@ -40,10 +40,15 @@ export const getPersonsReducer = (state = "", action) => {
 };
 // Add Person
 let id = 0;
-let personId = localStorage.getItem("newPersonId") || 1;
 const newId = id++;
+
+let personId = localStorage.getItem("newPersonId") || 1;
 const newPersonId = personId++;
 localStorage.setItem("newPersonId", newPersonId + 1);
+
+let hobbyId = localStorage.getItem("newHobbyId") || 1;
+const newHobbyId = hobbyId++;
+localStorage.setItem("newHobbyId", hobbyId + 1);
 
 export const personReducer = (state = {}, action) => {
   switch (action.type) {
@@ -87,7 +92,6 @@ export const personReducer = (state = {}, action) => {
 		}
 	};
 	case "ADD_HOBBY":
-	console.log('action id: ', action.id)
     return {
 		...state,
         [action.id]: {
@@ -95,8 +99,8 @@ export const personReducer = (state = {}, action) => {
 			hobbies: [
 				...state[action.id].hobbies,
 				{
-					id: action.id,
-					hobby: action.hobby,
+					id: newHobbyId,
+					name: action.name,
 				}
 			]
         }
@@ -106,7 +110,7 @@ export const personReducer = (state = {}, action) => {
 		...state,
 		[action.id]: {
 			...state[action.id],
-			hobbies: state[action.id].hobbies.filter((hobby, index) => index !== action.hobbyId)
+			hobbies: state[action.id].hobbies.filter((hobby, index) => index !== action.id)
 		}
 	};
     default:
