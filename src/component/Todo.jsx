@@ -34,7 +34,7 @@ const Todo = props => (
             />
         </div>
         <AddHobby
-            id={props.id}
+            id={props.hobby.id}
         />
     </label>
 </div>

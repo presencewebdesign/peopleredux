@@ -13,7 +13,7 @@ class AddHobby extends Component {
     handleSubmit(e) {
         e.preventDefault();
         if (this.props.setHobby.length > 0) {
-            console.log(this.props.id)
+            console.log(this.props.id);
             this.props.dispatch(actions.addHobby(
                 this.props.id,
                 this.props.setHobby,
@@ -22,9 +22,8 @@ class AddHobby extends Component {
     }
     render() {
         return (
-            <div className="panel">
-
-                {Object.keys(this.props.addPerson).map(key => {
+          <div className="panel">
+              {Object.keys(this.props.addPerson).map((key) => {
                     const hobbies = this.props.addPerson[key].hobbies;
                     console.log(hobbies);
                     return {
@@ -37,7 +36,8 @@ class AddHobby extends Component {
                         {...hobbies}
                     />
                 ))}
-                <label>Hobbies
+              <label>
+                    Hobbies
                     <form onSubmit={this.handleSubmit}>
                         <Input
                             name="hobby"
@@ -49,10 +49,10 @@ class AddHobby extends Component {
                                 this.props.dispatch(actions.setHobby(e.target.value));
                             }}
                         />
-                        <Button type="submit">Add Hobby</Button>
-                  </form>
-              </label>
-          </div>
+                      <Button type="submit">Add Hobby</Button>
+                    </form>
+                </label>
+            </div>
         );
     }
 }
